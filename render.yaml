@@ -3,15 +3,20 @@ services:
     name: healthassist-api
     env: python
     buildCommand: ./build.sh
-    startCommand: gunicorn healthAssit.wsgi:application
+    startCommand: gunicorn healthAssit.wsgi:application --bind 0.0.0.0:10000
     envVars:
-      - key: postgresql://healthassist_db_user:b18ZENHgjRI2CGOoCN7IJHARzkQzKoiy@dpg-d22ed2m3jp1c738qp9q0-a/healthassist_db
+      - key: DATABASE_URL
         fromDatabase:
           name: healthassist-db
-          property: postgresql://healthassist_db_user:b18ZENHgjRI2CGOoCN7IJHARzkQzKoiy@dpg-d22ed2m3jp1c738qp9q0-a/healthassist_db
+          property: connectionString
       - key: SECRET_KEY
         generateValue: true
       - key: DEBUG
         value: False
       - key: ALLOWED_HOSTS
         value: healthassist-api.onrender.com
+
+databases:
+  - name: healthassist-db
+    databaseName: healthassist_db
+    user: healthassist_db_user
