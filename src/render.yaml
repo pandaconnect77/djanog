@@ -5,10 +5,10 @@ services:
     buildCommand: ./build.sh
     startCommand: gunicorn healthAssit.wsgi:application
     envVars:
-      - key: DATABASE_URL
+      - key: postgresql://healthassist_db_user:b18ZENHgjRI2CGOoCN7IJHARzkQzKoiy@dpg-d22ed2m3jp1c738qp9q0-a/healthassist_db
         fromDatabase:
           name: healthassist-db
-          property: connectionString
+          property: postgresql://healthassist_db_user:b18ZENHgjRI2CGOoCN7IJHARzkQzKoiy@dpg-d22ed2m3jp1c738qp9q0-a/healthassist_db
       - key: SECRET_KEY
         generateValue: true
       - key: DEBUG
