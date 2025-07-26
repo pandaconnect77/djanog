@@ -1,0 +1,13 @@
+Django>=5.2,<6.0
+djangorestframework>=3.14,<4.0
+gunicorn>=21.2
+psycopg2-binary>=2.9
+dj-database-url>=1.0
+whitenoise>=6.6
+django-cors-headers>=4.3
+
+# Optional: if you use token auth (DRF built-in)
+djangorestframework-simplejwt>=5.3
+
+# Optional: for image uploads or file validation
+Pillow>=10.3
