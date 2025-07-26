@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
-set -o errexit
+set -o errexit  # Exit on error
+
+# Install dependencies
 pip install -r requirements.txt
-python manage.py collectstatic --no-input
+
+# Apply DB migrations
 python manage.py migrate
+
+# Collect static files for production
+python manage.py collectstatic --noinput
